@@ -64,3 +64,7 @@ int dataset_session_commit(dataset_session_t *session, bool release)
 	return 0;
 }
 
+int main(int argc, char *argv[])
+{
+	return 0;
+}
