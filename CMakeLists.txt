@@ -43,6 +43,21 @@ if((NOT HAVE_INI_CONFIG) OR (NOT HAVE_INI_CONFIG_H))
 endif((NOT HAVE_INI_CONFIG) OR (NOT HAVE_INI_CONFIG_H))
 
 
+## Check for libgit2
+check_include_files("git2.h" HAVE_GIT2_H)
+find_library(HAVE_GIT2 git2)
+check_library_exists(
+        git2
+        git_commit_lookup
+        ""
+	HAVE_GIT2
+        )
+
+if((NOT HAVE_GIT2) OR (NOT HAVE_GIT2_H))
+      message(FATAL_ERROR "Cannot find git2")
+endif((NOT HAVE_GIT2) OR (NOT HAVE_GIT2_H))
+
+
 add_subdirectory(dataset)
 
 # CPack / rpmbuild specific stuff
