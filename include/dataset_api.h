@@ -30,10 +30,7 @@ enum dataset_md_mask {
 }; 
 typedef enum dataset_md_mask dataset_md_mask_t;
 
-struct dataset_session {
-	int nothing;
-};
-typedef struct dataset_session dataset_session_t;
+typedef char *  dataset_session_t;
 
 struct dataset {
 	int nothing;
@@ -47,6 +44,8 @@ enum data_access {
 };
 typedef enum data_access dataset_access_t;
 
+int dataset_init(const char *configfile);
+int dataset_shutdown(void);
 
 int dataset_new(char *dsname);
 int dataset_manifest_dump(struct dataset *ds,
